@@ -1,5 +1,8 @@
 package com.example.basic.domain;
 
+/**
+ * Mybatis demo
+ */
 public class Card {
 
     private int id;
