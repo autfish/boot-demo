@@ -1,25 +1,21 @@
 package com.example.basic.controller;
 
-import com.example.basic.jpa.UserRepository;
-import com.example.basic.mapper.CardMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Controller
 public class HelloWorldController {
 
-    @Autowired
-    private CardMapper cardMapper;
-
-    @Autowired
-    private UserRepository userRepository;
+    Logger logger = LogManager.getLogger(HelloWorldController.class);
 
     @RequestMapping("/say.html")
     @ResponseBody
     public String say() {
-        System.out.println(userRepository.findById(1L));
-        return "Hello Spring Boot " + cardMapper.selectByPrimaryKey(1).getCode();
+        logger.info("Hello Spring Boot");
+        return "Hello Spring Boot";
     }
 }

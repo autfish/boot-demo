@@ -1,3 +1,10 @@
+server:
+   #java -jar bootsample.jar --server.port=9000
+   #java -Dserver.port=9000 -jar bootsample.jar
+   port: 8080
+   servlet:
+     context-path: /basic
+
 spring:
    datasource:
       name: test
@@ -7,3 +14,6 @@ spring:
    jpa:
       database: MYSQL
       show-sql: true
+   redis:
+      host: 127.0.0.1
+      port: 6379
