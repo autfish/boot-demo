@@ -14,6 +14,6 @@ public class RedisController {
     @GetMapping("/redis/get")
     public String get() {
         stringRedisTemplate.opsForValue().set("redis.key", "Spring Boot Redis");
-        return stringRedisTemplate.opsForValue().get("redis.key");
+        return "redis.key=" + stringRedisTemplate.opsForValue().get("redis.key");
     }
 }

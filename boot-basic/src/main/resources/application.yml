@@ -17,3 +17,7 @@ spring:
    redis:
       host: 127.0.0.1
       port: 6379
+      #sentinel:
+         #master: mymaster
+         #nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
+      #database: 0
