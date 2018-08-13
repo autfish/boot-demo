@@ -12,10 +12,15 @@ public class HelloWorldController {
 
     Logger logger = LogManager.getLogger(HelloWorldController.class);
 
-    @RequestMapping("/say.html")
+    @RequestMapping("/hi")
     @ResponseBody
     public String say() {
         logger.info("Hello Spring Boot");
         return "Hello Spring Boot";
+    }
+
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
     }
 }

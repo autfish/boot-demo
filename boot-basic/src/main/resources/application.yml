@@ -6,6 +6,12 @@ server:
      context-path: /basic
 
 spring:
+   thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: HTML5
+      encoding: UTF-8
+      cache: false
    datasource:
       name: test
       url: jdbc:mysql://localhost:3306/test
