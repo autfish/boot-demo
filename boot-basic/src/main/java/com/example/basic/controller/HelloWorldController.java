@@ -1,6 +1,7 @@
 package com.example.basic.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,7 +21,10 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/index")
-    public String index() {
+    public String index(Model model) {
+        int x = 0;
+        double y = 100 / x;
+        model.addAttribute("hello", y);
         return "index";
     }
 }
