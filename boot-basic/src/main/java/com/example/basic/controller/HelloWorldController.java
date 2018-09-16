@@ -20,11 +20,17 @@ public class HelloWorldController {
         return "Hello Spring Boot";
     }
 
+    @RequestMapping("/zero")
+    public String zero(Model model) {
+        int x = 0;
+        int y = 100 / x;
+        model.addAttribute("hello", y);
+        return "index";
+    }
+
     @RequestMapping("/index")
     public String index(Model model) {
-        int x = 0;
-        double y = 100 / x;
-        model.addAttribute("hello", y);
+        model.addAttribute("hello", "Hello world");
         return "index";
     }
 }
