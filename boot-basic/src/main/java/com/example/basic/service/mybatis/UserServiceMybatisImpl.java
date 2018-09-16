@@ -24,4 +24,9 @@ public class UserServiceMybatisImpl implements UserService {
         System.out.println("mybatis");
         return userMapper.findOne(id);
     }
+
+    @Override
+    public void save(User user) {
+        userMapper.save(user);
+    }
 }

@@ -23,4 +23,9 @@ public class UserServiceJpaImpl implements UserService {
     public User findById(long id) {
         return userRepository.findById(id).get();
     }
+
+    @Override
+    public void save(User user) {
+        userRepository.save(user);
+    }
 }
