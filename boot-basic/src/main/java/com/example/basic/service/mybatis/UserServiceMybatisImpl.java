@@ -27,6 +27,10 @@ public class UserServiceMybatisImpl implements UserService {
 
     @Override
     public void save(User user) {
-        userMapper.save(user);
+        User other = userMapper.findOne(user.getId());
+        if(other == null)
+            userMapper.insertOne(user);
+        else
+            userMapper.updateOne(user);
     }
 }

@@ -1,10 +1,7 @@
 package com.example.basic.mapper;
 
 import com.example.basic.domain.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
@@ -14,5 +11,8 @@ public interface UserMapper {
 
     @Insert("INSERT INTO t_user(name,sex,age) VALUES(#{name},#{sex},#{age})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    void save(User user);
+    void insertOne(User user);
+
+    @Update("UPDATE t_user SET name=#{name},sex=#{sex},age=#{age} WHERE id=#{id}")
+    void updateOne(User user);
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <form id="queryForm" action="./save" method="post">
-    <div><input type="text" id="id" name="id" th:value="${user.id}" /></div>
+    <div><input type="text" id="id" name="id" th:value="${user.id} == 0 ? '' : ${user.id}" /></div>
     <div><input type="text" id="name" name="name" th:value="${user.name}" /></div>
     <div><input type="text" id="sex" name="sex" th:value="${user.sex}" /></div>
     <div><input type="text" id="age" name="age" th:value="${user.age}" /></div>

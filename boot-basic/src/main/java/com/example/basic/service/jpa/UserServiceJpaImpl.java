@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Conditional(JpaCondition.class)
 public class UserServiceJpaImpl implements UserService {
@@ -21,7 +23,10 @@ public class UserServiceJpaImpl implements UserService {
 
     @Override
     public User findById(long id) {
-        return userRepository.findById(id).get();
+        Optional<User> o = userRepository.findById(id);
+        if(o.isPresent())
+            return o.get();
+        return null;
     }
 
     @Override
