@@ -10,7 +10,11 @@
 <form id="queryForm" action="./save" method="post">
     <div><input type="text" id="id" name="id" th:value="${user.id} == 0 ? '' : ${user.id}" /></div>
     <div><input type="text" id="name" name="name" th:value="${user.name}" /></div>
-    <div><input type="text" id="sex" name="sex" th:value="${user.sex}" /></div>
+    <div>
+        <select name="sex">
+            <option th:each="sex:${sexs}" th:value="${sex.key}" th:text="${sex.value}" th:selected="${sex.key} == ${user.sex}"></option>
+        </select>
+    </div>
     <div><input type="text" id="age" name="age" th:value="${user.age}" /></div>
     <div><input type="submit" value="更新"  /></div>
 </form>

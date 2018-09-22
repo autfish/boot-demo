@@ -3,6 +3,8 @@ package com.example.basic.mapper;
 import com.example.basic.domain.User;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -15,4 +17,7 @@ public interface UserMapper {
 
     @Update("UPDATE t_user SET name=#{name},sex=#{sex},age=#{age} WHERE id=#{id}")
     void updateOne(User user);
+
+    @Select("SELECT * FROM t_user")
+    List<User> findAll();
 }

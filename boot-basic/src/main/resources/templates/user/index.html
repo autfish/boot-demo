@@ -7,6 +7,20 @@
     <script th:src="@{/scripts/jquery-1.10.2.min.js}"></script>
 </head>
 <body>
+<table>
+    <tr>
+        <td th:text="id"></td>
+        <td th:text="name"></td>
+        <td th:text="sex"></td>
+        <td th:text="age"></td>
+    </tr>
+    <tr th:each="user:${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.sex}"></td>
+        <td th:text="${user.age}"></td>
+    </tr>
+</table>
 <form id="queryForm" action="./get" method="get">
     <div><input type="text" id="id" name="id" /></div>
     <div><input type="submit" value="查询"  /></div>

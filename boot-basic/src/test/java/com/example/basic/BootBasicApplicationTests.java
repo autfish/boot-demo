@@ -12,5 +12,4 @@ public class BootBasicApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }

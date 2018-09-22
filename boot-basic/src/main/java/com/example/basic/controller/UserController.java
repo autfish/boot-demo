@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -17,7 +21,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/index")
-    public String index() {
+    public String index(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
         return "user/index";
     }
 
@@ -27,13 +33,18 @@ public class UserController {
         if(user == null)
             user = new User();
         model.addAttribute("user", user);
+
+        Map<String, String> sexs = new HashMap<>();
+        sexs.put("m", "男");
+        sexs.put("f", "女");
+        model.addAttribute("sexs", sexs);
+
         return "user/user";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public String get(User user) {
-        System.out.println(user.getName());
         userService.save(user);
         return "ok";
     }
