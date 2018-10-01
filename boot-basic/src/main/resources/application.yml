@@ -1,33 +1,3 @@
-server:
-   #java -jar bootsample.jar --server.port=9000
-   #java -Dserver.port=9000 -jar bootsample.jar
-   port: 8080
-   servlet:
-     context-path: /basic
-
 spring:
-   thymeleaf:
-      prefix: classpath:/templates/
-      suffix: .html
-      mode: HTML5
-      encoding: UTF-8
-      cache: false
-   datasource:
-      name: test
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF8
-      username: root
-      password: root123456
-      filters: stat,wall,log4j
-   jpa:
-      database: MYSQL
-      show-sql: true
-   redis:
-      host: 127.0.0.1
-      port: 6379
-      #sentinel:
-         #master: mymaster
-         #nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
-      #database: 0
-
-orm: mybatis
+   profiles:
+     active: dev

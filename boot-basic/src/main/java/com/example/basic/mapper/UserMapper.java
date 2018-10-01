@@ -20,4 +20,7 @@ public interface UserMapper {
 
     @Select("SELECT * FROM t_user")
     List<User> findAll();
+
+    @Select("SELECT * FROM t_user where sex=#{sex} and age=#{age}")
+    User findBySexAndAge(String sex, int age);
 }
