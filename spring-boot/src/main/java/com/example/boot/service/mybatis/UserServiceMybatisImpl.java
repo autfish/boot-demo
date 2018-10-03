@@ -1,9 +1,9 @@
-package com.example.basic.service.mybatis;
+package com.example.boot.service.mybatis;
 
-import com.example.basic.condition.MybatisCondition;
-import com.example.basic.domain.User;
-import com.example.basic.mapper.UserMapper;
-import com.example.basic.service.UserService;
+import com.example.boot.condition.MybatisCondition;
+import com.example.boot.domain.User;
+import com.example.boot.mapper.UserMapper;
+import com.example.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;

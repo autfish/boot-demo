@@ -1,4 +1,4 @@
-package com.example.basic.controller;
+package com.example.boot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

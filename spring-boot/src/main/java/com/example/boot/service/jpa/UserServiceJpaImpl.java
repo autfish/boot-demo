@@ -1,9 +1,9 @@
-package com.example.basic.service.jpa;
+package com.example.boot.service.jpa;
 
-import com.example.basic.condition.JpaCondition;
-import com.example.basic.domain.User;
-import com.example.basic.jpa.UserRepository;
-import com.example.basic.service.UserService;
+import com.example.boot.condition.JpaCondition;
+import com.example.boot.domain.User;
+import com.example.boot.jpa.UserRepository;
+import com.example.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;

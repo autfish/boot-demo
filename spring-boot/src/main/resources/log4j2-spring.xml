@@ -97,7 +97,7 @@
             <AppenderRef ref="special-log"/>
         </Logger>
         <Logger name="org.springframework">
-            <AppenderRef ref="special-log" />
+            <AppenderRef ref="info-log" />
         </Logger>
     </Loggers>
 </Configuration>

@@ -1,4 +1,4 @@
-package com.example.basic.config;
+package com.example.boot.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;

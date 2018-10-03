@@ -1,6 +1,6 @@
-package com.example.basic.service;
+package com.example.boot.service;
 
-import com.example.basic.domain.User;
+import com.example.boot.domain.User;
 
 import java.util.List;
 

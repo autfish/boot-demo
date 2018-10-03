@@ -1,4 +1,4 @@
-package com.example.basic.config;
+package com.example.boot.config;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;

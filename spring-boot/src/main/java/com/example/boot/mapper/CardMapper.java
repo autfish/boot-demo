@@ -1,6 +1,6 @@
-package com.example.basic.mapper;
+package com.example.boot.mapper;
 
-import com.example.basic.domain.Card;
+import com.example.boot.domain.Card;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

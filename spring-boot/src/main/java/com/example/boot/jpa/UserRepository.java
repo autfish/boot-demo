@@ -1,6 +1,6 @@
-package com.example.basic.jpa;
+package com.example.boot.jpa;
 
-import com.example.basic.domain.User;
+import com.example.boot.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

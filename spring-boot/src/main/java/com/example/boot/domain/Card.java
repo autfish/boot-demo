@@ -1,4 +1,4 @@
-package com.example.basic.domain;
+package com.example.boot.domain;
 
 /**
  * Mybatis demo

@@ -1,6 +1,6 @@
-package com.example.basic.mapper;
+package com.example.boot.mapper;
 
-import com.example.basic.domain.User;
+import com.example.boot.domain.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

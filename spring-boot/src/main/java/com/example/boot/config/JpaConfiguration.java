@@ -1,4 +1,4 @@
-package com.example.basic.config;
+package com.example.boot.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories(basePackages = "com.example.basic.jpa")
-@EntityScan(basePackages = "com.example.basic.domain")
+@EnableJpaRepositories(basePackages = "com.example.boot.jpa")
+@EntityScan(basePackages = "com.example.boot.domain")
 public class JpaConfiguration {
 
     @Bean
