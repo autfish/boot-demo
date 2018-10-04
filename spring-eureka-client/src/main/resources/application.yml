@@ -5,3 +5,7 @@ eureka:
    client:
       serviceUrl:
          defaultZone: http://localhost:1111/eureka
+      #指定服务所属的region和zone
+      region: region1
+      availability-zones:
+         region1: zone1

@@ -13,6 +13,11 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "Hello world";
     }
 }
