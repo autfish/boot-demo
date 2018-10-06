@@ -1,0 +1,12 @@
+server:
+   port: 5555
+zuul:
+   routes:
+      users:
+         path: /users/**
+         #url: http://localhost:8080/
+         serviceId: hello-service
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:1111/eureka

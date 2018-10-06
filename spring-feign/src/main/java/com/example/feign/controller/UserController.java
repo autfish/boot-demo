@@ -14,6 +14,6 @@ public class UserController {
 
     @RequestMapping("/consumer")
     public User getUser() {
-        return userService.getUser(1, false);
+        return userService.getUser(1, true);
     }
 }
