@@ -12,3 +12,10 @@ eureka:
          defaultZone: http://localhost:1111/eureka
 server:
    port: 9000
+hystrix:
+   command:
+      default:
+         execution:
+            isolation:
+               thread:
+                  timeoutInMilliseconds: 5000

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>spring-eureka-hystrix-consumer</artifactId>
+    <artifactId>spring-feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>spring-eureka-hystrix-consumer</name>
+    <name>spring-feign</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -40,16 +40,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <!-- 开启dashboard,非必须 http://xxx/hystrix.stream -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
         <dependency>
