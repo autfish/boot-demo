@@ -1,0 +1,24 @@
+server:
+   #java -jar xxx.jar --server.port=9000
+   #java -Dserver.port=9000 -jar xxx.jar
+   port: 8080
+   servlet:
+     context-path: /md
+
+spring:
+   datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      data-source1:
+         url: jdbc:mysql://59.151.122.234:3306/zy_payment?useUnicode=true&characterEncoding=UTF8
+         username: platform_user
+         password: KI(98a21kGHJ21!n1K
+         initial-size: 5
+         min-idle: 5
+         test-on-borrow: true
+      data-source2:
+         url: jdbc:mysql://59.151.105.111:3306/zy_payment?useUnicode=true&characterEncoding=UTF8
+         username: accountUser
+         password: VkfdikHu4787Jyf
+mybatis:
+   mapper-locations: classpath:mapping/*.xml
+   type-aliases-package: com.example.boot.domain
