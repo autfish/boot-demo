@@ -3,9 +3,13 @@ server:
 zuul:
    routes:
       users:
+         #默认会创建 /hello-service/**
          path: /users/**
          #url: http://localhost:8080/
          serviceId: hello-service
+   AccessFilter:
+      pre:
+         disable: false
 eureka:
    client:
       serviceUrl:

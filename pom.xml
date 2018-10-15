@@ -11,9 +11,13 @@
     <modules>
         <module>spring-actuator</module>
         <module>spring-boot</module>
+        <module>spring-boot-multi-datasource</module>
         <module>spring-eureka-client</module>
         <module>spring-eureka-consumer</module>
+        <module>spring-eureka-hystrix-consumer</module>
         <module>spring-eureka-server</module>
+        <module>spring-feign</module>
+        <module>spring-zuul</module>
     </modules>
 
     <name>boot-demo</name>

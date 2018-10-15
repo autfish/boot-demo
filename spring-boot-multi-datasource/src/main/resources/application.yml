@@ -9,16 +9,16 @@ spring:
    datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       data-source1:
-         url: jdbc:mysql://59.151.122.234:3306/zy_payment?useUnicode=true&characterEncoding=UTF8
-         username: platform_user
-         password: KI(98a21kGHJ21!n1K
+         url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF8
+         username: root
+         password: root123456
          initial-size: 5
          min-idle: 5
          test-on-borrow: true
       data-source2:
-         url: jdbc:mysql://59.151.105.111:3306/zy_payment?useUnicode=true&characterEncoding=UTF8
-         username: accountUser
-         password: VkfdikHu4787Jyf
+         url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF8
+         username: root
+         password: root123456
 mybatis:
    mapper-locations: classpath:mapping/*.xml
    type-aliases-package: com.example.boot.domain

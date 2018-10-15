@@ -8,6 +8,6 @@
         <result column="age" property="age" jdbcType="INTEGER"/>
     </resultMap>
     <select id="findOne" resultMap="BaseResultMap">
-        select * from t_pay_order where id=#{id,jdbcType=INTEGER}
+        select * from t_user where id=#{id,jdbcType=INTEGER}
     </select>
 </mapper>

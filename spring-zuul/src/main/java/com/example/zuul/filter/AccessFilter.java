@@ -10,11 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 public class AccessFilter extends ZuulFilter {
     @Override
     public String filterType() {
+        //pre 在请求被路由之前调用
+        //routing
+        //post
+        //error
         return "pre";
     }
 
     @Override
     public int filterOrder() {
+        //定义多个过滤器时的执行顺序
         return 0;
     }
 
