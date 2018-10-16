@@ -4,6 +4,8 @@ import com.example.boot.condition.MybatisCondition;
 import com.example.boot.domain.User;
 import com.example.boot.mapper.UserMapper;
 import com.example.boot.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;
@@ -39,5 +41,12 @@ public class UserServiceMybatisImpl implements UserService {
     @Override
     public List<User> findAll() {
         return userMapper.findAll();
+    }
+
+    @Override
+    public PageInfo<User> findAll(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> userList = userMapper.findAll();
+        return new PageInfo<>(userList);
     }
 }

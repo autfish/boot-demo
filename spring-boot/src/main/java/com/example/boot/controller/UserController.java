@@ -3,6 +3,7 @@ package com.example.boot.controller;
 import com.alibaba.fastjson.JSON;
 import com.example.boot.domain.User;
 import com.example.boot.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,8 +55,28 @@ public class UserController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
-    public String get(User user) {
+    public String save(User user) {
         userService.save(user);
         return "ok";
+    }
+
+    @RequestMapping(value = "/page", method = RequestMethod.GET)
+    public String page(Model model, Integer pageNum, Integer pageSize) {
+
+        if(pageNum == null || pageNum <= 0)
+            pageNum = 1;
+        if(pageSize == null || pageSize <= 0)
+            pageSize = 5;
+
+        PageInfo<User> users = userService.findAll(pageNum, pageSize);
+        System.out.println("users.getPages()=" + users.getPages());
+        System.out.println("users.getSize()=" + users.getSize());
+        System.out.println("users.getPageSize()=" + users.getPageSize());
+        System.out.println("users.getPageNum()=" + users.getPageNum());
+        users.getList().forEach(v -> {
+            System.out.println(JSON.toJSONString(v));
+        });
+        model.addAttribute("pageInfo", users);
+        return "user/page";
     }
 }

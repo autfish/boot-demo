@@ -4,6 +4,7 @@ import com.example.boot.condition.JpaCondition;
 import com.example.boot.domain.User;
 import com.example.boot.jpa.UserRepository;
 import com.example.boot.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,10 @@ public class UserServiceJpaImpl implements UserService {
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public PageInfo<User> findAll(int pageNum, int pageSize) {
+        return null;
     }
 }
