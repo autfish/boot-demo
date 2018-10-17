@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * java -jar xxx.jar --server.port=8888 --spring.profiles.active=dev
+ */
 @SpringBootApplication
 public class SpringBootDemo {
 

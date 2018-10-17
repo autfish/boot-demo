@@ -94,11 +94,47 @@
         </dependency>
     </dependencies>
 
+    <!--mvn clean package -Dmaven.test.skip=true -P prod -->
+    <!--IDEA: Run->Edit Configrations->Add->Maven->Command lines=clean package -Dmaven.test.skip=true->profiles=prod -->
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <log4j2.path>/APP/promotion/logs</log4j2.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <log4j2.path>D:/Logs/promotion</log4j2.path>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
             </plugin>
         </plugins>
     </build>
