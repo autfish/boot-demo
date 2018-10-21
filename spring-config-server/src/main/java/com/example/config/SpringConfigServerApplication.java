@@ -11,9 +11,10 @@ public class SpringConfigServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringConfigServerApplication.class, args);
 
-        //http://localhost:7001/demo/default  demo.yml
-        //http://localhost:7001/demo/dev  demo-dev.yml
-        //http://localhost:7001/demo/dev/some-branch
+        //http://localhost:7001/config-client/default  config-client.yml
+        //http://localhost:7001/config-client/dev  config-client-dev.yml
+        //http://localhost:7001/demo/config-client/dev/master
+        //http://localhost:7001/demo/config-client/dev/some-branch
 
     }
 }
