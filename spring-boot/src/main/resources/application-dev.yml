@@ -23,12 +23,18 @@ spring:
       database: MYSQL
       show-sql: true
    redis:
-      host: 127.0.0.1
-      port: 6379
-      #sentinel:
-         #master: mymaster
-         #nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
-      #database: 0
+      database: 0
+      lettuce:
+         pool:
+            max-active: 8
+            max-idle: 8
+            min-idle: 0
+      standalone:
+         host: 127.0.0.1
+         port: 6379
+      sentinel:
+         master: mymaster
+         nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
 orm: mybatis
 pagehelper:
    helperDialect: mysql
