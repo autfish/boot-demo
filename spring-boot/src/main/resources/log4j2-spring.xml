@@ -10,7 +10,7 @@
         java -Dlog4j2.path=xxx
     ]]>
     <properties>
-        <property name="LOG_HOME">${sys:log4j2.path}</property>
+        <property name="LOG_HOME">${log4j2.path}</property>
         <property name="SPECIAL_FILE_NAME">special</property>
         <property name="INFO_FILE_NAME">info</property>
         <property name="WARN_FILE_NAME">warn</property>

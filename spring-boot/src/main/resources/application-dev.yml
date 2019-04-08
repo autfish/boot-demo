@@ -1,6 +1,4 @@
 server:
-   #java -jar bootsample.jar --server.port=9000
-   #java -Dserver.port=9000 -jar bootsample.jar
    port: 8080
    servlet:
      context-path: /basic
@@ -35,6 +33,8 @@ spring:
       sentinel:
          master: mymaster
          nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
+   rocketmq:
+      name-server: 59.151.122.234:9876
 orm: mybatis
 pagehelper:
    helperDialect: mysql
