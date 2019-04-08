@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "t_user")
 public class User {
 
+    @org.springframework.data.annotation.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
