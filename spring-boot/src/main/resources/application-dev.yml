@@ -35,6 +35,12 @@ spring:
          nodes: 127.0.0.1:16379,127.0.0.1:16380,127.0.0.1:16381
    rocketmq:
       name-server: 59.151.122.234:9876
+   data:
+      mongodb:
+         host: 59.151.122.234
+         port: 27017
+         database: zysdk
+
 orm: mybatis
 pagehelper:
    helperDialect: mysql
