@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="1800">
+    <properties>
+        <property name="LOG_HOME">D:/Logs/elastic</property>
+        <property name="TASK_FILE_NAME">task</property>
+        <property name="COMMAND_FILE_NAME">command</property>
+        <property name="DEBUG_FILE_NAME">debug</property>
+        <property name="INFO_FILE_NAME">info</property>
+        <property name="WARN_FILE_NAME">warn</property>
+        <property name="ERROR_FILE_NAME">error</property>
+    </properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+        <RollingRandomAccessFile name="debug-log"
+                                 fileName="${LOG_HOME}/${DEBUG_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${DEBUG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <![CDATA[ 接受trace、debug ]]>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="info-log"
+                                 fileName="${LOG_HOME}/${INFO_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${INFO_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <![CDATA[ 接受trace、debug、info ]]>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="warn-log"
+                                 fileName="${LOG_HOME}/${WARN_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${WARN_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <![CDATA[ 接受warn ]]>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="error-log"
+                                 fileName="${LOG_HOME}/${ERROR_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${ERROR_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <![CDATA[ 接受error、fatal ]]>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="task-log"
+                                 fileName="${LOG_HOME}/${TASK_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${TASK_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="200 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="200"/>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="command-log"
+                                 fileName="${LOG_HOME}/${COMMAND_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${COMMAND_FILE_NAME}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout
+                    pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="200 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="200"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- trace < debug < info < warn < error < fatal -->
+        <Root level="info">
+            <AppenderRef ref="debug-log" />
+            <AppenderRef ref="info-log" />
+            <AppenderRef ref="warn-log" />
+            <AppenderRef ref="error-log" />
+        </Root>
+        <Logger name="task" level="info"
+                additivity="false">
+            <AppenderRef ref="task-log"/>
+        </Logger>
+        <Logger name="command" level="info"
+                additivity="false">
+            <AppenderRef ref="command-log"/>
+        </Logger>
+        <Logger name="org.springframework">
+            <AppenderRef ref="info-log" />
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="formBase(pageInfo)">
+    <input type="hidden" id="pageNum" name="pageNum"/>
+    <div class="col-sm-6">
+        <div class="dataTables_length">
+            <label><select name="pageSize" class="form-inline input-sm" onchange="javascript:page(1);">
+            <option value="5" th:selected="${pageInfo.pageSize == 5}">5</option>
+            <option value="10" th:selected="${pageInfo.pageSize == 10}">10</option>
+            <option value="20" th:selected="${pageInfo.pageSize == 20}">20</option>
+            <option value="50" th:selected="${pageInfo.pageSize == 50}">50</option>
+            <option value="100" th:selected="${pageInfo.pageSize == 100}">100</option>
+        </select> <th:block th:text="'条/页, 共' + ${pageInfo.total} + '条'"></th:block></label></div>
+    </div>
+    <div class="col-sm-6">
+        <div class="dataTables_filter" style="text-align: right">
+            <ul class="pagination pagination-sm no-margin">
+                <th:block th:if="${pageInfo.previousPage}">
+                    <li class="paginate_button previous"><a th:href="@{'javascript:page(' + ${pageInfo.previousPageNum} + ');'}"
+                                                            th:text="Previous"></a></li>
+                </th:block>
+                <th:block th:each="nav:${pageInfo.navigatePageNums}">
+                    <li th:class="${pageInfo.pageNum} == ${nav} ? 'paginate_button active' : 'paginate_button'"><a
+                            th:href="@{'javascript:page(' + ${nav} + ');'}" th:text="${nav}">1</a></li>
+                </th:block>
+                <th:block th:if="${pageInfo.nextPage}">
+                    <li class="paginate_button next"><a th:href="@{'javascript:page(' + ${pageInfo.nextPageNum} + ');'}"
+                                                        th:text="Next"></a></li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function page(pageNum) {
+            document.getElementById("pageNum").value = pageNum;
+            document.forms[0].submit();
+        }
+    </script>
+</th:block>
